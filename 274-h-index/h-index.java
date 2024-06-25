@@ -1,16 +1,17 @@
 class Solution {
     public int hIndex(int[] citations) {
-        // Sort the array in descending order
+        // Sort the citations array
         Arrays.sort(citations);
-        
-        // Traverse the sorted array to find the H-index
         int n = citations.length;
+        
+        // Traverse the sorted array from the end to the beginning
         for (int i = 0; i < n; i++) {
-            int h = n - i; // h is the number of papers with at least h citations
+            int h = n - i;
             if (citations[i] >= h) {
                 return h;
             }
         }
+        
         return 0;
 }
 }
